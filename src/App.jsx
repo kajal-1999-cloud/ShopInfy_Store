@@ -16,12 +16,16 @@ import Signup from "./pages/registration/Signup";
 import ProductInfo from "./pages/productInfo/productInfo";
 import AddProduct from "./pages/admin/page/AddProduct";
 import UpdateProduct from "./pages/admin/page/UpdateProduct";
+import Allproducts from "./pages/AllProducts/Allproducts";
+import { ToastContainer } from 'react-toastify';
+
 function App() {
   return (
     <MyState>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/allproducts" element={<Allproducts />} />
           <Route
             path="/order"
             element={
@@ -57,9 +61,17 @@ function App() {
               </ProtectedRouteForAdmin>
             }
           />
-          <Route path="/updateproduct" element={<UpdateProduct />} />
+          <Route
+            path="/updateproduct"
+            element={
+              <ProtectedRouteForAdmin>
+                <UpdateProduct />
+              </ProtectedRouteForAdmin>
+            }
+          />
           <Route path="/*" element={<NoPage />} />
         </Routes>
+        <ToastContainer/>
       </Router>
     </MyState>
   );
