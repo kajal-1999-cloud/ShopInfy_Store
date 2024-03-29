@@ -49,7 +49,7 @@ function Allproducts() {
                 .filter((obj) => obj.category.toLowerCase().includes(filterType))
                 .filter((obj) => obj.price.includes(filterPrice))
                 .map((item, index) => {
-                  const { title, price, description, imageUrl, id } = item;
+                  const { title, price, imageUrl, id } = item;
                   return (
                     <div
                       key={index}

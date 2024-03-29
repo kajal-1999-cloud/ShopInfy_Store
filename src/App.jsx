@@ -6,6 +6,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import Home from "./pages/home/Home";
+import AllProducts from "./pages/AllProducts/Allproducts";
 import Order from "./pages/order/Order";
 import Cart from "./pages/cart/Cart";
 import Dashboard from "./pages/admin/dashboard/Dashboard";
@@ -16,7 +17,6 @@ import Signup from "./pages/registration/Signup";
 import ProductInfo from "./pages/productInfo/productInfo";
 import AddProduct from "./pages/admin/page/AddProduct";
 import UpdateProduct from "./pages/admin/page/UpdateProduct";
-import Allproducts from "./pages/allProducts/Allproducts";
 import { ToastContainer } from 'react-toastify';
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/allproducts" element={<Allproducts />} />
+          <Route path="/allproducts" element={<AllProducts />} />
           <Route
             path="/order"
             element={
