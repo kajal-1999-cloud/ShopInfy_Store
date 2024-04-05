@@ -12,7 +12,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const context = useContext(myContext);
-  const { mode, toggleMode } = context;
+  const { mode, toggleMode, searchKey, setSearchKey } = context;
   const cartItems = useSelector((state) => state.cart);
 
   const user = JSON.parse(localStorage.getItem("user"));
@@ -126,14 +126,14 @@ export default function Navbar() {
       {/* desktop  */}
       <header className="relative bg-white">
         <p
-          className="flex h-10 items-center justify-center bg-indigo-500 opacity-80 px-2 text-sm font-medium text-white sm:px-4 lg:px-6"
+          className="flex h-10 items-center justify-center bg-black-500 opacity-80 px-2 text-sm font-medium text-white sm:px-4 lg:px-6"
           style={{
-            backgroundColor: mode === "dark" ? "#bae6fd" : "",
-            color: mode === "dark" ? "black" : "",
+            backgroundColor: mode === "dark" ? "black" : "#082f49",
+            color: mode === "dark" ? "yellow" : "#fef08a",
           }}
         >
           {" "}
-          Get free delivery & free coupon on orders over ₹1000
+          GET FREE DELIVERY & FREE COUPON ON ORDERS OVER ₹1000
         </p>
         <nav
           aria-label="Top"
@@ -154,7 +154,7 @@ export default function Navbar() {
                   color: mode === "dark" ? "white" : "",
                 }}
               >
-                <span className="sr-only">Open menu</span>
+                <span className="sr-only">OPEN  MENU</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -189,15 +189,40 @@ export default function Navbar() {
                       className=" text-2xl font-bold text-black  px-2 py-1 rounded"
                       style={{ color: mode === "dark" ? "white" : "" }}
                     >
-                      ShopInfy
-                    </h1>
+                      {/* ShOpiNFy */}
+SHOPINFY        
+
+            </h1>
                   </div>
                 </Link>
               </div>
-
+        
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   {/* Search */}
+                  <div className="relative">
+                    <input
+                      type="text"
+                      value={searchKey}
+                      onChange={(e) => setSearchKey(e.target.value)}
+                      placeholder="SEARCH HERE"
+                      className="px-5 py-3 pr-12 w-full font-bold rounded-md bg-transparent border-b border-gray-500 outline-0 text-sm"
+                      style={{
+                        backgroundColor: mode === "dark" ? "rgb(64 66 70)" : "",
+                        color: mode === "dark" ? "white" : "",
+                      }}
+                    />
+                      <div className="absolute inset-y-0 right-2 flex items-center mr-2">
+                      <svg
+                        className="w-4 h-4 fill-current text-primary-gray-dark"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M15.8898 15.0493L11.8588 11.0182C11.7869 10.9463 11.6932 10.9088 11.5932 10.9088H11.2713C12.3431 9.74952 12.9994 8.20272 12.9994 6.49968C12.9994 2.90923 10.0901 0 6.49968 0C2.90923 0 0 2.90923 0 6.49968C0 10.0901 2.90923 12.9994 6.49968 12.9994C8.20272 12.9994 9.74952 12.3431 10.9088 11.2744V11.5932C10.9088 11.6932 10.9495 11.7869 11.0182 11.8588L15.0493 15.8898C15.1961 16.0367 15.4336 16.0367 15.5805 15.8898L15.8898 15.5805C16.0367 15.4336 16.0367 15.1961 15.8898 15.0493ZM6.49968 11.9994C3.45921 11.9994 0.999951 9.54016 0.999951 6.49968C0.999951 3.45921 3.45921 0.999951 6.49968 0.999951C9.54016 0.999951 11.9994 3.45921 11.9994 6.49968C11.9994 9.54016 9.54016 11.9994 6.49968 11.9994Z" />
+                      </svg>
+                    </div>
+                  </div>
                   <div className="flex lg:ml-6">
                     <button className="" onClick={toggleMode}>
                       {/* <MdDarkMode size={35} style={{ color: mode === 'dark' ? 'white' : '' }} /> */}
@@ -214,18 +239,18 @@ export default function Navbar() {
 
                   <Link
                     to={"/allproducts"}
-                    className="text-sm font-medium text-gray-700 "
+                    className="text-sm font-medium focus:bg-gray-300 p-2 active:bg-gray-300 focus:color-white-100 text-gray-700 "
                     style={{ color: mode === "dark" ? "white" : "" }}
                   >
-                    All Products
+                    ALL PRODUCTS
                   </Link>
                   {user ? (
                     <Link
                       to={"/order"}
-                      className="text-sm font-medium text-gray-700 "
+                      className="text-sm font-medium focus:bg-gray-300 p-2 active:bg-gray-300 text-gray-700 "
                       style={{ color: mode === "dark" ? "white" : "" }}
                     >
-                      Order
+                      ORDER
                     </Link>
                   ) : (
                     ""
@@ -233,10 +258,10 @@ export default function Navbar() {
                   {user?.user?.email === "kjgupta76@gmail.com" ? (
                     <Link
                       to={"/dashboard"}
-                      className="text-sm font-medium text-gray-700 "
+                      className="text-sm font-medium focus:bg-gray-300 p-2 active:bg-gray-300 text-gray-700 "
                       style={{ color: mode === "dark" ? "white" : "" }}
                     >
-                      Admin
+                      ADMIN
                     </Link>
                   ) : (
                     ""
@@ -245,30 +270,30 @@ export default function Navbar() {
                     <div className="flow-root">
                       <a
                         onClick={logout}
-                        className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer"
+                        className="-m-2 block p-2 font-medium focus:bg-gray-300 p-2 active:bg-gray-300 text-gray-900 cursor-pointer"
                         style={{ color: mode === "dark" ? "white" : "" }}
                       >
-                        Logout
+                        LOGOUT
                       </a>
                     </div>
                   ) : (
                     <div className="flow-root">
                       <Link
                         to={"/signup"}
-                        className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer"
+                        className="-m-2 block p-2 font-medium focus:bg-gray-300 p-2 active:bg-gray-300 text-gray-900 cursor-pointer"
                         style={{ color: mode === "dark" ? "white" : "" }}
                       >
-                        Signup
+                        SIGNUP
                       </Link>
                     </div>
                   )}
                 </div>
 
                 {/* Cart */}
-                <div className="ml-4 flow-root lg:ml-6">
+                <div className="ml-4 flow-root focus:bg-gray-300 p-2 active:bg-gray-300  lg:ml-6">
                   <Link
                     to={"/cart"}
-                    className="group -m-2 flex items-center p-2"
+                    className="group -m-2 flex  focus:bg-gray-300 p-2 active:bg-gray-300  items-center p-2"
                     style={{ color: mode === "dark" ? "white" : "" }}
                   >
                     <svg

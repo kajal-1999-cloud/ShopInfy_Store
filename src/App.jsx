@@ -9,15 +9,19 @@ import Home from "./pages/home/Home";
 import AllProducts from "./pages/AllProducts/Allproducts";
 import Order from "./pages/order/Order";
 import Cart from "./pages/cart/Cart";
-import Dashboard from "./pages/admin/dashboard/Dashboard";
+import Dashboard from "./pages/admin/dashboard/DashboardTab";
 import MyState from "./context/data/myState";
 import NoPage from "./pages/nopage/NoPage";
 import Login from "./pages/registration/Login";
 import Signup from "./pages/registration/Signup";
+import Categories from "./pages/Categories/categories";
 import ProductInfo from "./pages/productInfo/productInfo";
 import AddProduct from "./pages/admin/page/AddProduct";
 import UpdateProduct from "./pages/admin/page/UpdateProduct";
 import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   return (
@@ -26,6 +30,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/allproducts" element={<AllProducts />} />
+          <Route path="/category/:name" element={<Categories />} />
           <Route
             path="/order"
             element={

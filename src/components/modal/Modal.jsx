@@ -15,11 +15,11 @@ export default function Modal({ name, address, pincode, phoneNumber, setName, se
     // console.log(name,address,pincode,phoneNumber)
     return (
         <>
-            <div className="  text-center rounded-lg text-white font-bold">
+            <div className="  text-center rounded-lg text-black font-bold">
                 <button
                     type="button"
                     onClick={openModal}
-                    className="w-full  bg-violet-600 py-2 text-center rounded-lg text-white font-bold"
+                    className="w-full bg-gradient-to-r from-yellow-100 to-blue-200 py-2 text-center rounded-lg text-black font-bold"
                 >
                     Buy Now
                 </button>

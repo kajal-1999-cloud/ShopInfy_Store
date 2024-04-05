@@ -47,14 +47,14 @@ function Login() {
             {loading && <Loader/>}
               <div className=' bg-gray-100 px-20 py-20 rounded-xl '>
                 <div className="">
-                    <h1 className='text-center text-white text-xl mb-4 font-bold'>Login</h1>
+                    <h1 className='text-center text-black text-xl mb-4 font-bold'>Login</h1>
                </div>
                 <div>
                     <input type="email"
                         name='email'
                         value={email}
                         onChange={(e)=>setEmail(e.target.value)}
-                         className=' bg-gray-600 mb-6 px-4 py-2 w-full lg:w-[20em] rounded-lg text-black placeholder:text-white outline-none'
+                         className=' bg-gray-600 mb-6 px-4 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-white outline-none'
                         placeholder='Email'
                     />
                 </div>

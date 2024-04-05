@@ -73,7 +73,7 @@ function UpdateProduct() {
             ></textarea>
           </div>
                     <div className=' flex justify-center mb-3'>
-                        <button onClick={updateProduct}
+                        <button onClick={()=> updateProduct}
                             className=' bg-teal-600 w-full text-black font-bold  px-2 py-2 rounded-lg'>
                             Update Product
                         </button>

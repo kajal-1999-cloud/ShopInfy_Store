@@ -1,8 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import myContext from "../../context/data/myContext";
+// import Navbar from "../navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { addToCart } from "../../redux/cartSlice";
+
 
 function ProductCard() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -25,26 +27,28 @@ function ProductCard() {
 
   return (
     <div>
-      <section className="text-gray-600 body-font">
-        <div className="container px-6 py-8 md:py-16 mx-auto">
-          <div className="lg:w-1/2  mb-6 lg:mb-10">
-            <h1
-              className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"
+      <section className="text-gray-600 text-center body-font">
+        <div className="container px-6  py-8 md:py-16 text-center mx-auto">
+          <div className=" m-5   border-y  text-center mb-6 lg:mb-10">
+          <h1
               style={{ color: mode === "dark" ? "white" : "" }}
+              className="sm:text-3xl text-2xl font-Workbench font-medium title-font mb-4  text-slate-500"
             >
-              Our Latest Collection
+             OUR LATEST COLLECTION
             </h1>
-            <div className="h-1 w-20 bg-pink-600 rounded"></div>
+          
           </div>
-
           <div className="flex flex-wrap -m-4">
             {product
-              .filter((obj) => obj.title.toLowerCase().includes(searchKey))
+              .filter(
+                (obj) =>
+                  obj.category.toLowerCase().includes(searchKey) ||
+                  obj.title.toLowerCase().includes(searchKey)
+              )
               .filter((obj) => obj.category.toLowerCase().includes(filterType))
               .filter((obj) => obj.price.includes(filterPrice))
-              .slice(0, 8)
               .map((item, index) => {
-                const { title, price, description, imageUrl, id } = item;
+                const { title, price, imageUrl, id } = item;
                 return (
                   <div
                     key={index}
@@ -90,7 +94,7 @@ function ProductCard() {
                           <button
                             onClick={() => addCart(item)}
                             type="button"
-                            className="focus:outline-none text-white bg-indigo-500 hover:bg-pink-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2"
+                            className="focus:outline-none  bg-gradient-to-r from-yellow-100 to-blue-200 bg-indigo-500 hover:bg-pink-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2"
                           >
                             Add To Cart
                           </button>
