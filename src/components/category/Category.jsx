@@ -46,12 +46,12 @@ const params = useParams()
       <h1 className="sm:text-3xl text-2xl border-t font-Workbench font-medium title-font mb-2  text-yellow-600">
         POPULAR CATEGORIES
       </h1>
-      <div className="flex flex-row justify-center items-center mt-10">
+      <div className="flex flex-row pl-10 m-width-full overflow-x-scroll hide-scroll-bar justify-center items-center mt-10">
     
        {categoryArray.map((item, index) => {
         
        return (
-        <div key={index} className="px-5" >
+        <div key={index} className="px-2" >
           {/*  */}
         <div  onClick={ () => navigate(`category/${item.name}`)} className=" bg-gradient-to-r from-yellow-200 to-orange-300 w-44 h-52  text-right m-4  bg-sky-200 transition-all hover:bg-pink-400 cursor-pointer">
           <h1 className="text-center px-2 text-sm lg:text-lg text-center font-medium title-font first-letter:uppercase ">
@@ -71,6 +71,8 @@ const params = useParams()
        })}
        
       </div>
+      <style dangerouslySetInnerHTML={{ __html: "\n.hide-scroll-bar {\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n}\n.hide-scroll-bar::-webkit-scrollbar {\n  display: none;\n}\n" }} />
+    
     </div>
   );
 }
