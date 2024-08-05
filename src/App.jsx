@@ -61,9 +61,9 @@ function App() {
           <Route
             path="/productinfo/:id"
             element={
-              <ProtectedRouteForAdmin>
+              <ProtectedRoute>
                 <ProductInfo />
-              </ProtectedRouteForAdmin>
+              </ProtectedRoute>
             }
           />
           <Route
@@ -89,6 +89,7 @@ export const ProtectedRoute = ({ children }) => {
   if (user) {
     return children;
   } else {
+    toast.success('please login to view Details')
     return <Navigate to={"/login"} />;
   }
 };
